@@ -1,18 +1,7 @@
 import React from "react";
+
 import ItemDetails, { Record } from "../item-details/item-details";
-import SwapiService from "../../services/swapi-service";
-import withDetails from "../hoc-helper/with-details";
-
-const swapiService = new SwapiService();
-
-const {
-    getPerson,
-    getPlanet,
-    getStarship,
-    getPersonImage,
-    getPlanetImage,
-    getStarshipImage
-} = swapiService;
+import { withDetails, withSwapiService } from "../hoc-helper";
 
 const withChildFunction = (Wrapped, fn) => {
     return (props) => {
@@ -32,6 +21,13 @@ const starshipDetails = (
     </React.Fragment>
 );
 
+const mapStarshipethodsToProps = (swapiService) => {
+  return {
+    getData: swapiService.getStarship,
+    getImageUrl: swapiService.getStarshipImage
+  }
+};
+
 const planetDetails = (
     <React.Fragment>
         <Record field="population" label="Population" />
@@ -40,6 +36,13 @@ const planetDetails = (
     </React.Fragment>
 );
 
+const mapPlanetMethodsToProps = (swapiService) => {
+  return {
+    getData: swapiService.getPlanet,
+    getImageUrl: swapiService.getPlanetImage
+  }
+};
+
 const personDetails = (
     <React.Fragment>
         <Record field="gender" label="Gender" />
@@ -47,11 +50,24 @@ const personDetails = (
     </React.Fragment>
 );
 
-const PersonDetails = withDetails(withChildFunction(ItemDetails, personDetails), getPerson, getPersonImage);
+const mapPersonMethodsToProps = (swapiService) => {
+  return {
+    getData: swapiService.getPerson,
+    getImageUrl: swapiService.getPersonImage
+  }
+};
 
-const PlanetDetails = withDetails(withChildFunction(ItemDetails, planetDetails), getPlanet, getPlanetImage);
+const PersonDetails = withSwapiService(
+                        withDetails(withChildFunction(ItemDetails, personDetails)),
+                        mapPersonMethodsToProps);
 
-const StarshipDetails = withDetails(withChildFunction(ItemDetails, starshipDetails), getStarship, getStarshipImage);
+const PlanetDetails = withSwapiService(
+                        withDetails(withChildFunction(ItemDetails, planetDetails)),
+                        mapPlanetMethodsToProps);
+
+const StarshipDetails = withSwapiService(
+                          withDetails(withChildFunction(ItemDetails, starshipDetails)),
+                          mapStarshipethodsToProps);
 
 export  {
     PersonDetails,
