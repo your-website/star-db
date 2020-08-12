@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import './item-details.scss';
 import ErrorButton from '../error-button';
+import ErrorBoundry from "../error-boundry";
 
 const Record = ({ item, field, label}) => {
   return (
@@ -24,7 +25,7 @@ export default class ItemDetails extends Component {
     const { name } = item;
 
     const hasData =
-        <React.Fragment>
+        <ErrorBoundry>
           <img className="item-image"
                src={ image } alt={ name } />
 
@@ -39,7 +40,7 @@ export default class ItemDetails extends Component {
             </ul>
             <ErrorButton />
           </div>
-        </React.Fragment>;
+        </ErrorBoundry>
 
     return (
       <div className="item-details card">
