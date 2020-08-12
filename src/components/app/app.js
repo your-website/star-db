@@ -5,7 +5,16 @@ import RandomPlanet from '../random-planet';
 import ErrorButton from '../error-button'
 import './app.css';
 import ErrorIndicator from '../error-indicator';
-import PeoplePage from '../people-page/people-page';
+import SwapiService from "../../services/swapi-service";
+import Row from "../row";
+import {
+    PersonList,
+    PlanetList,
+    StarshipList,
+    PersonDetails,
+    PlanetDetails,
+    StarshipDetails
+} from "../sw-components";
 
 export default class App extends Component {
 
@@ -32,7 +41,7 @@ export default class App extends Component {
 
     if (this.state.hasError) {
       return <ErrorIndicator />
-    };
+    }
 
     const planet = this.state.showRandomPlanet ?
       <RandomPlanet/> :
@@ -49,7 +58,18 @@ export default class App extends Component {
           Toggle Random Planet
         </button>
         <ErrorButton />
-        <PeoplePage />
+
+        <Row
+          left={<PersonList/>}
+          right={<PersonDetails itemId={4}/>} />
+
+        <Row
+          left={<StarshipList/>}
+          right={<StarshipDetails itemId={5}/>} />
+
+        <Row
+          left={<PlanetList/>}
+          right={<PlanetDetails itemId={4}/>} />
       </div>
     );
   }

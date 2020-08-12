@@ -18,6 +18,10 @@
   text-decoration: none;
 }
 
+.header a {
+  color: green;
+}
+
 .header h3 a {
   color: white;
 }
