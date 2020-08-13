@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import Spinner from "../spinner";
+import ErrorIndicator from "../error-indicator";
 
 const withDetails = (View) => {
     return class extends  Component {
@@ -7,7 +8,8 @@ const withDetails = (View) => {
         state = {
             item: null,
             loading: false,
-            image: null
+            image: null,
+            error: false
         };
 
         componentDidMount() {
@@ -39,11 +41,17 @@ const withDetails = (View) => {
                         loading: true,
                         image: this.props.getImageUrl(item)
                     });
+                })
+                .catch((err) => {
+                    this.setState({
+                        error: true,
+                        loading: false
+                    })
                 });
         };
 
         render() {
-            const { item, loading, image } = this.state;
+            const { item, loading, image, error } = this.state;
 
             if(!item) {
                 return <p>Choose person</p>
@@ -51,6 +59,10 @@ const withDetails = (View) => {
 
             if (!loading) {
                 return <Spinner />
+            }
+
+            if (error) {
+                return <ErrorIndicator />
             }
 
             return <View {...this.props} item={ item } image={ image }/>

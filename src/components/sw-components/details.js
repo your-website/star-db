@@ -1,17 +1,11 @@
 import React from "react";
 
 import ItemDetails, { Record } from "../item-details/item-details";
-import { withDetails, withSwapiService } from "../hoc-helper";
-
-const withChildFunction = (Wrapped, fn) => {
-    return (props) => {
-        return (
-            <Wrapped {...props}>
-                { fn.props.children }
-            </Wrapped>
-        )
-    }
-};
+import {
+  withDetails,
+  withSwapiService,
+  withChildFunctionProps,
+  compose} from "../hoc-helper";
 
 const starshipDetails = (
     <React.Fragment>
@@ -57,17 +51,23 @@ const mapPersonMethodsToProps = (swapiService) => {
   }
 };
 
-const PersonDetails = withSwapiService(
-                        withDetails(withChildFunction(ItemDetails, personDetails)),
-                        mapPersonMethodsToProps);
+const PersonDetails = compose(
+                        withSwapiService(mapPersonMethodsToProps),
+                        withDetails,
+                        withChildFunctionProps(personDetails),
+                        )(ItemDetails);
 
-const PlanetDetails = withSwapiService(
-                        withDetails(withChildFunction(ItemDetails, planetDetails)),
-                        mapPlanetMethodsToProps);
+const PlanetDetails = compose(
+                        withSwapiService(mapPlanetMethodsToProps),
+                        withDetails,
+                        withChildFunctionProps(planetDetails),
+                        )(ItemDetails);
 
-const StarshipDetails = withSwapiService(
-                          withDetails(withChildFunction(ItemDetails, starshipDetails)),
-                          mapStarshipethodsToProps);
+const StarshipDetails = compose(
+                          withSwapiService(mapStarshipethodsToProps),
+                          withDetails,
+                          withChildFunctionProps(starshipDetails),
+                          )(ItemDetails);
 
 export  {
     PersonDetails,
