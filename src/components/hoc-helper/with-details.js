@@ -54,7 +54,7 @@ const withDetails = (View) => {
             const { item, loading, image, error } = this.state;
 
             if(!item) {
-                return <p>Choose person</p>
+                return <p>Select a item from a list</p>
             }
 
             if (!loading) {
