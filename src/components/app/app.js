@@ -15,7 +15,6 @@ export default class App extends Component {
 
   state = {
     showRandomPlanet: true,
-    hasError: false,
     swapiService: new SwapiService()
   };
 
@@ -24,12 +23,6 @@ export default class App extends Component {
       return {
         showRandomPlanet: !state.showRandomPlanet
       }
-    });
-  };
-
-  componentDidCatch() {
-    this.setState({
-      hasError: true
     });
   };
 
@@ -50,7 +43,7 @@ export default class App extends Component {
     }
 
     const planet = this.state.showRandomPlanet ?
-                      <RandomPlanet/> :
+                      <RandomPlanet /> :
                       null;
 
     return (
