@@ -1,0 +1,13 @@
+.app {
+    max-width: 1268px;
+    margin: 0 auto;
+    padding: 0 36px;
+}
+
+.toggle-planet {
+    margin-bottom: 10px;
+}
+
+.toggle-planet.btn {
+    margin: 10px 10px 10px 0;
+}
