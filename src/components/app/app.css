@@ -2,6 +2,7 @@
     max-width: 1268px;
     margin: 0 auto;
     padding: 0 36px;
+    min-height: 100vh;
 }
 
 .toggle-planet {

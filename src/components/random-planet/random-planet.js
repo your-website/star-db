@@ -38,7 +38,7 @@ export default class RandomPlanet extends Component {
   };
 
   onPlanetLoaded = (planet) => {
-    this.setState({ 
+    this.setState({
       planet,
       loading: false,
       error: false
@@ -68,7 +68,7 @@ export default class RandomPlanet extends Component {
     const errorMessage = error ? <ErrorIndicator /> : null;
     const spinner = loading ? <Spinner /> : null;
     const content = hasData ? <PlanetView planet={ planet } /> : null;
-    
+
     return (
       <div className="random-planet jumbotron rounded">
         { errorMessage }
@@ -87,8 +87,8 @@ const PlanetView = ({ planet }) => {
     <React.Fragment>
       <img className="planet-image"
              src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`} alt="planet" />
-      <div>
-        <h4>{ name }</h4>
+      <div className="random-planet__container">
+        <h4 className="random-planet__content-title">{ name }</h4>
         <ul className="list-group list-group-flush">
           <li className="list-group-item">
             <span className="term">Population</span>

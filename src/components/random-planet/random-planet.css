@@ -21,3 +21,17 @@
 .random-planet .list-group-item .term {
   margin-right: .5rem;
 }
+
+.random-planet__content-title {
+  margin: 1rem 0 0 1rem;
+}
+
+@media screen and (max-width: 450px) {
+  .random-planet {
+    flex-direction: column;
+  }
+
+  .random-planet .list-group-item {
+    max-width: 150px;
+  }
+}

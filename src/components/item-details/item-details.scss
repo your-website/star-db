@@ -6,12 +6,19 @@
   @media screen and (max-width: 767px) {
     margin-top: 1rem;
   };
+
+
+  @media screen and (max-width: 450px) {
+    flex-direction: column;
+  }
+
 };
 
 .item-details .item-image {
-  width: 30%;
-  height: 30%;
+  width: 150px;
+  height: 150px;
   border-radius: 10px;
+  margin-right: 1rem;
 };
 
 .item-details .list-group-item {
@@ -21,3 +28,11 @@
 .item-details .list-group-item .term{
   margin-right: .5rem;
 };
+
+.card-body {
+  padding: 0 0 0 0px;
+}
+
+h4 {
+  margin: 0;
+}

@@ -9,7 +9,7 @@ const Row = ({ left, right }) => {
       <div className="col-md-6">
         {left}
       </div>
-      <div className="col-md-6">
+      <div className="col-md-6 row__container">
         {right}
       </div>
     </div>
