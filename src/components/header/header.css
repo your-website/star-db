@@ -35,3 +35,13 @@
   margin-top: 3px;
   margin-left: 20px;
 }
+
+.header__list {
+  display: flex;
+}
+
+@media screen and (max-width: 650px) {
+  .header__list {
+    display: none;
+  }
+}

@@ -29,6 +29,6 @@ class HeaderMenu extends Component {
         </Menu>
     )
   }
-};
+}
 
 export default HeaderMenu;

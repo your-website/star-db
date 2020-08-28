@@ -6,12 +6,20 @@
 }
 
 /* Position and sizing of burger button */
+
 .bm-burger-button {
-    position: fixed;
-    width: 36px;
-    height: 30px;
-    right: 36px;
-    top: 10px;
+    display: none;
+}
+
+@media screen and (max-width: 650px) {
+    .bm-burger-button {
+        display: block;
+        position: fixed;
+        width: 36px;
+        height: 30px;
+        right: 36px;
+        top: 10px;
+    }
 }
 
 /* Color/shape of burger icon bars */

@@ -1,5 +1,7 @@
 Проект Star-DB написанный на React + React Router
 
+Ссылка на проект: https://your-website.github.io/star-db
+
 Чтобы запустить проект:
 git clone https://github.com/your-website/star-db
 
@@ -9,5 +11,3 @@ git clone https://github.com/your-website/star-db
 
 В проекте реализована работа с API Star-DB (https://swapi.dev/api).
 В папке services хранится вся работа с API.
-
-Без реализации адаптивной верстки.

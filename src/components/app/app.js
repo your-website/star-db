@@ -66,7 +66,7 @@ export default class App extends Component {
                   <Header onServiceChange={ this.onServiceChange } />
                   <RandomPlanet />
                     <Switch>
-                      <Route path="/"
+                      <Route path="/star-db"
                              render={() => <h2>Welcome to StarDB</h2>}
                              exact />
                       <Route path="/people/:id?" component={ PeoplePage } />
